@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Model"
+	"Algorithm/Algorithmtest/Model"
 	"fmt"
 )
 
@@ -19,23 +19,23 @@ import (
 //	return max + 1
 //}
 
-func maxDepth(root *Model.Node) int{
-	if root == nil{
+func maxDepth(root *Model.Node) int {
+	if root == nil {
 		return 0
 	}
 	return getDepth(root) + 1
 }
 
-func getDepth(root *Model.Node) (res int){
+func getDepth(root *Model.Node) (res int) {
 	max := 0
-	if root == nil{
+	if root == nil {
 		return max
-	}else{
+	} else {
 		max = 1
 	}
-	for _, child := range root.Children{
+	for _, child := range root.Children {
 		temp := max + getDepth(child)
-		if temp > res{
+		if temp > res {
 			res = temp
 		}
 	}

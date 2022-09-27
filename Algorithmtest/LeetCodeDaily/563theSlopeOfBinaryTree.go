@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Model"
+	"Algorithm/Algorithmtest/Model"
 	"fmt"
 )
 
@@ -19,15 +19,15 @@ import (
 //	dfs(root)
 //	return
 //}
-func findTilt(root *Model.TreeNode) int{ //也是递归
-	if root == nil{
+func findTilt(root *Model.TreeNode) int { //也是递归
+	if root == nil {
 		return 0
 	}
 	res := findTilt(root.Left) + findTilt(root.Right) + Model.Abs(getSum(root.Left), getSum(root.Right))
 	return res
 }
-func getSum(root *Model.TreeNode) int{
-	if root == nil{
+func getSum(root *Model.TreeNode) int {
+	if root == nil {
 		return 0
 	}
 	return getSum(root.Left) + getSum(root.Right) + root.Val

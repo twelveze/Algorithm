@@ -1,24 +1,24 @@
 package main
 
 import (
-	"Model"
+	"Algorithm/Algorithmtest/Model"
 	"fmt"
 )
 
-func levelOrder(root *Model.Node) [][]int{
+func levelOrder(root *Model.Node) [][]int {
 	var res [][]int
 	var node []*Model.Node
-	if root == nil{
+	if root == nil {
 		return [][]int{}
-	}else{
+	} else {
 		node = append(node, root)
 		res = append(res, []int{root.Val})
 	}
-	for len(node) != 0{
+	for len(node) != 0 {
 		var tempNode []*Model.Node
 		var tempRes []int
-		for i := 0; i < len(node); i++{ //目前这一层的所有节点
-			for j := 0; j < len(node[i].Children); j++{ //存储临时结果，然后把节点的子节点一个个加入到下一层的遍历队列
+		for i := 0; i < len(node); i++ { //目前这一层的所有节点
+			for j := 0; j < len(node[i].Children); j++ { //存储临时结果，然后把节点的子节点一个个加入到下一层的遍历队列
 				tempNode = append(tempNode, node[i].Children[j])
 				tempRes = append(tempRes, node[i].Children[j].Val)
 			}
@@ -27,19 +27,19 @@ func levelOrder(root *Model.Node) [][]int{
 		res = append(res, tempRes)
 	}
 	n := len(res)
-	return res[:n - 1]
+	return res[:n-1]
 }
 
-func levelOrderByAnswer(root *Model.Node) (ans [][]int){
-	if root == nil{
+func levelOrderByAnswer(root *Model.Node) (ans [][]int) {
+	if root == nil {
 		return [][]int{}
 	}
 	queue := []*Model.Node{root}
-	for queue != nil{
-	    var	level []int
+	for queue != nil {
+		var level []int
 		temp := queue
 		queue = nil
-		for _, node := range temp{
+		for _, node := range temp {
 			level = append(level, node.Val)
 			queue = append(queue, node.Children...)
 		}
