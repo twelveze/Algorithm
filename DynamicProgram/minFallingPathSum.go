@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Model"
+	"Algorithm/Model"
 	"fmt"
 	"math"
 )

@@ -1,5 +1,5 @@
-module Algorithm/Algorithmtest/Model
+module Algorithm/Model
 
 go 1.16
 
-replace "Algorithm/Algorithmtest/Model" => "../Model"
+replace "Algorithm/Model" => "../Model"

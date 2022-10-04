@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Algorithm/Algorithmtest/Model"
+	"Algorithm/Model"
 	"fmt"
 )
 
