@@ -9,12 +9,12 @@ import (
 func subdomainVisits(cpdomains []string) []string {
 	domainMap := make(map[string]int)
 	for _, s := range cpdomains {
-		spaceIndex := strings.IndexByte(s, ' ')
+		spaceIndex := strings.Index(s, " ")
 		count, _ := strconv.Atoi(s[:spaceIndex]) //次数
 		subDomain := s[spaceIndex+1:]            //域名str
 		domainMap[subDomain] += count
 		for {
-			spot := strings.IndexByte(subDomain, '.')
+			spot := strings.Index(subDomain, ".")
 			if spot < 0 {
 				break
 			}
