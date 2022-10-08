@@ -39,23 +39,21 @@ import (
 //思想:首先将nums1 nums2排序，然后将nums1从小到大遍历去匹配nums2,如果nums1的数字匹配不到，那么直接将其匹配nums2最大的
 func advantageCount(nums1, nums2 []int) []int {
 	n := len(nums1)
-	idx1 := make([]int, n)
 	idx2 := make([]int, n)
 	for i := 0; i < n; i++ {
-		idx1[i] = i
 		idx2[i] = i
 	}
-	sort.Slice(idx1, func(i, j int) bool { return nums1[idx1[i]] < nums1[idx1[j]] })
+	//把索引位置按照nums元素的大小排序,后续可以用排序后的索引进行赋值(巧妙！！！)
 	sort.Slice(idx2, func(i, j int) bool { return nums2[idx2[i]] < nums2[idx2[j]] })
-
+	sort.Ints(nums1)
 	ans := make([]int, n)
 	left, right := 0, n-1
 	for i := 0; i < n; i++ {
-		if nums1[idx1[i]] > nums2[idx2[left]] {
-			ans[idx2[left]] = nums1[idx1[i]]
+		if nums1[i] > nums2[idx2[left]] {
+			ans[idx2[left]] = nums1[i]
 			left++
 		} else {
-			ans[idx2[right]] = nums1[idx1[i]]
+			ans[idx2[right]] = nums1[i]
 			right--
 		}
 	}
