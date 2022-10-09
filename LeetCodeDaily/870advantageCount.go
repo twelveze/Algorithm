@@ -64,5 +64,6 @@ func main() {
 	nums1 := []int{12, 24, 8, 32}
 	nums2 := []int{13, 25, 32, 11}
 	res := advantageCount(nums1, nums2)
+	//
 	fmt.Println(res)
 }
