@@ -11,11 +11,11 @@ func numComponents(head *Model.ListNode, nums []int) int {
 	for _, v := range nums {
 		numMap[v] = struct{}{}
 	}
-	for flag := false; head != nil; head = head.Next {
-		if _, ok := numMap[head.Val]; !ok {
-			flag = false
-		} else if !flag {
+	for flag := true; head != nil; head = head.Next {
+		if _, ok := numMap[head.Val]; !ok { //如果不存在,flag置为true,这样当下次出现存在的数字时就会+1
 			flag = true
+		} else if flag {
+			flag = false //连续出现存在的数字只会被记为1
 			ans++
 		}
 	}
