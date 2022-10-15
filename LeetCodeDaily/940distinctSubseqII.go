@@ -6,7 +6,7 @@ import "fmt"
 func distinctSubseqII(s string) int {
 	const mod int = 1e9 + 7
 	ans := 0
-	last := make([]int, 26) //表示最新位置的以 c 结尾的子序列的个数
+	last := make([]int, 26) //表示以c为结尾的子字符串中'c'所在s中的index
 	for i := range last {
 		last[i] = -1
 	}
