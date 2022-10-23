@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Algorithm/Model"
 	"fmt"
 	"sort"
 )
@@ -15,9 +16,10 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 
 	dp := make([]int, n+1)
 	for i := 1; i <= n; i++ {
-		//二分查找找到结束时间小于等于第i-1份工作的工作下标
-		k := sort.Search(i, func(j int) bool { return jobs[j][1] > jobs[i-1][0] })
-		dp[i] = max(dp[i-1], dp[k]+jobs[i-1][2])
+		//Search函数采用二分法搜索找到[0, i)区间内最小的满足f(i)==true的值i
+		//此代码看的还是有点懵,与题解思想不符
+		k := sort.Search(i, func(k int) bool { return jobs[k][1] > jobs[i-1][0] })
+		dp[i] = Model.Max(dp[i-1], dp[k]+jobs[i-1][2])
 	}
 	return dp[n]
 }
