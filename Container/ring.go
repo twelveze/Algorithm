@@ -17,7 +17,7 @@ func main() {
 
 	//循环打印闭环中的元素值
 	r.Do(
-		func(p interface{}){
+		func(p interface{}) {
 			println(p.(int))
 		})
 
@@ -28,9 +28,9 @@ func main() {
 	fmt.Println("xxx")
 	//链接当前元素r与r5，相当于删除了r与r5之间的元素
 	r1 := r.Link(r5)
-	fmt.Printf("r1 = %d\n",r1.Value)
+	fmt.Printf("r1 = %d\n", r1.Value)
 	r5.Do(
-		func(p interface{}){
+		func(p interface{}) {
 			println(p.(int))
 		})
 }

@@ -1,4 +1,5 @@
 package main
+
 import (
 	"container/heap"
 	"fmt"
@@ -21,8 +22,8 @@ func (h *Heap) Len() int {
 }
 
 func (h *Heap) Pop() interface{} {
-	x := (*h)[h.Len() - 1]
-	*h = (*h)[: h.Len() - 1]
+	x := (*h)[h.Len()-1]
+	*h = (*h)[:h.Len()-1]
 	return x
 }
 
@@ -31,11 +32,11 @@ func (h *Heap) Push(x interface{}) {
 }
 
 func (h *Heap) Remove(idx int) interface{} {
-	h.Swap(idx, h.Len() - 1)
+	h.Swap(idx, h.Len()-1)
 	return h.Pop()
 }
 
-func main(){
+func main() {
 
 	//创建一个heap
 	h := &Heap{}

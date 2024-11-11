@@ -10,7 +10,7 @@ func main() {
 
 	//向双向链表中插入26个小写字母
 	for i := 97; i < 123; i++ {
-		ls.PushFront(i)     //PushFront()代表从头部插入，同样PushBack()代表从尾部插入
+		ls.PushFront(i) //PushFront()代表从头部插入，同样PushBack()代表从尾部插入
 	}
 
 	//遍历双向链表ls中的所有字母
